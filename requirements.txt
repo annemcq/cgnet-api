@@ -1,0 +1,10 @@
+fastapi==0.136.1
+uvicorn==0.46.0
+pydantic==2.13.3
+torch
+numpy
+matplotlib
+streamlit==1.57.0
+requests==2.33.1
+pytest==8.3.4
+httpx==0.28.1

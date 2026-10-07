@@ -15,6 +15,12 @@ bead coordinates or from a pair of backbone pseudo-dihedral angles. A
 Streamlit interface provides an interactive view of the resulting energy
 landscape.
 
+## Live demo
+
+**Try the interactive app:** https://annemcq-cgnet-api-streamlit-appapp-obnfhv.streamlit.app
+
+Explore the learned coarse-grained energy landscape and evaluate the model at different pseudo-phi/psi conformations directly in your browser.
+
 ## Interactive interface
 
 ![Streamlit interface](images/streamlit_demo.png)

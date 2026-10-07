@@ -97,14 +97,6 @@ GET /landscape?n_grid=35
 The endpoint evaluates the model over a regular phi/psi grid and is used by
 the Streamlit interface to generate the energy-landscape heatmap.
 
-## Interactive interface
-
-The Streamlit app allows phi and psi to be varied with sliders and displays
-the corresponding point on the model-predicted energy landscape.
-
-It also reports the predicted energy and force magnitude for each of the five
-CG beads.
-
 ## Repository structure
 
 ```text

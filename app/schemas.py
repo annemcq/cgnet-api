@@ -1,15 +1,21 @@
-# ============================================================
-# PYDANTIC SCHEMAS
-# CG Force Field Energy Landscape API
-# ============================================================
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
-from typing import List, Optional
 
 
 class DihedralInput(BaseModel):
-    phi: float = Field(..., ge=-180, le=180, description="Backbone pseudo-phi angle (degrees)")
-    psi: float = Field(..., ge=-180, le=180, description="Backbone pseudo-psi angle (degrees)")
+    phi: float = Field(
+        ...,
+        ge=-180,
+        le=180,
+        description="Backbone pseudo-phi angle (degrees)",
+    )
+    psi: float = Field(
+        ...,
+        ge=-180,
+        le=180,
+        description="Backbone pseudo-psi angle (degrees)",
+    )
 
 
 class StructureInput(BaseModel):

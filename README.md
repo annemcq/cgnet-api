@@ -15,6 +15,13 @@ bead coordinates or from a pair of backbone pseudo-dihedral angles. A
 Streamlit interface provides an interactive view of the resulting energy
 landscape.
 
+## Interactive interface
+
+![Streamlit interface](images/streamlit_demo.png)
+
+The Streamlit interface provides a simple way to explore the model-predicted
+energy landscape and evaluate individual pseudo-phi/psi conformations.
+
 ## From dihedral angles to model predictions
 
 The trained model expects the Cartesian coordinates of five coarse-grained

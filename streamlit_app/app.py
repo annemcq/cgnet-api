@@ -6,7 +6,7 @@ import requests
 import streamlit as st
 
 
-API_URL = os.environ.get("CGNET_API_URL", "http://127.0.0.1:8000")
+API_URL = st.secrets.get("CGNET_API_URL", os.environ.get("CGNET_API_URL", "http://127.0.0.1:8000"))
 
 st.set_page_config(
     page_title="CG Force Field Energy Landscape",

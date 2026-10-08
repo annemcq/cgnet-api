@@ -25,8 +25,7 @@ Explore the learned coarse-grained energy landscape and evaluate the model at di
 
 ![Streamlit interface](images/streamlit_demo.png)
 
-The Streamlit interface provides a simple way to explore the model-predicted
-energy landscape and evaluate individual pseudo-phi/psi conformations.
+The Streamlit interface sends requests to the FastAPI backend configured through `CGNET_API_URL`. The backend loads the packaged model weights from `models/` and returns the model's predicted energies and forces; the Streamlit app does not contain a separate copy of the model.
 
 ## From dihedral angles to model predictions
 
@@ -107,6 +106,11 @@ the Streamlit interface to generate the energy-landscape heatmap.
 
 ```text
 cgnet-api/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
+├── images/
+│   └── streamlit_demo.png
 ├── app/
 │   ├── main.py
 │   ├── model_loader.py
@@ -123,6 +127,8 @@ cgnet-api/
 ├── tests/
 │   └── test_api.py
 ├── Dockerfile
+├── LICENSE
+├── pytest.ini
 ├── requirements.txt
 └── README.md
 ```
@@ -173,19 +179,9 @@ the `CGNET_API_URL` environment variable.
 
 ## Validation and limitations
 
-The underlying force field was trained and validated in the companion
-`mlcg-gnn-alanine` project.
+The packaged API serves the same trained force field validated in `mlcg-gnn-alanine`. The companion project contains the training procedure, coarse-graining workflow and molecular-dynamics validation, including the limitations of the learned conformational distribution.
 
-In short CG simulations, the model samples the main conformational regions of
-the reference trajectory in approximately the same areas of pseudo-phi/psi
-space. The relative populations and overall distribution are not reproduced
-well, however, and the CG trajectory also visits regions that are sparsely
-populated in the reference data.
-
-The energy landscape exposed by this application should therefore be treated
-as a visualization of the learned model rather than as a quantitatively
-validated free-energy surface. Predictions in poorly sampled regions of the
-training trajectory are particularly uncertain.
+This application is therefore a deployment and exploration layer around that model, not a new validation of the force field. The displayed energy landscape should be treated as a visualization of the learned model rather than as a quantitatively validated free-energy surface, especially in poorly sampled regions. See `mlcg-gnn-alanine` for the underlying validation and quantitative conformational-distribution comparison.
 
 ## Tests
 

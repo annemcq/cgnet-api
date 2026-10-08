@@ -196,7 +196,7 @@ pytest tests/
 ## Related project
 
 The model training, coarse-graining procedure and molecular simulation are
-contained in `mlcg-gnn-alanine`.
+contained in [`mlcg-gnn-alanine`](https://github.com/annemcq/mlcg-gnn-alanine).
 
 ## Technologies
 

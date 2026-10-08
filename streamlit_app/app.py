@@ -33,7 +33,7 @@ def get_landscape(n_grid: int = 35):
     response = requests.get(
         f"{API_URL}/landscape",
         params={"n_grid": n_grid},
-        timeout=30,
+        timeout=120,
     )
     response.raise_for_status()
     return response.json()
@@ -50,8 +50,9 @@ try:
 except Exception:
     landscape_available = False
     st.warning(
-        "Could not reach the API to compute the landscape. "
-        "Is the FastAPI server running?"
+        "The backend may be waking up after an idle period. "
+        "Please wait a minute and refresh the page. "
+        "If it still fails, check the API service status."
     )
 
 
@@ -125,7 +126,7 @@ if st.button("Evaluate model at this (phi, psi)"):
         response = requests.post(
             f"{API_URL}/predict/from_dihedrals",
             json=payload,
-            timeout=15,
+            timeout=120,
         )
 
         if response.status_code == 200:
@@ -156,8 +157,8 @@ if st.button("Evaluate model at this (phi, psi)"):
 
     except Exception:
         st.error(
-            "Could not connect to API. "
-            "Make sure the FastAPI server is running."
+            "The API may be waking up after an idle period. "
+            "Wait a minute and try again; if it persists, check the backend status."
         )
 
 

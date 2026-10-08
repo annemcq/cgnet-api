@@ -25,7 +25,7 @@ Explore the learned coarse-grained energy landscape and evaluate the model at di
 
 ![Streamlit interface](images/streamlit_demo.png)
 
-The Streamlit interface sends requests to a **separately hosted FastAPI backend** configured through the Streamlit secret `CGNET_API_URL` (or the environment variable of the same name). The deployment provider and public backend URL are not recorded in this repository; to document the exact host, check the deployed Streamlit app's Secrets settings for `CGNET_API_URL`. Locally, the default is `http://127.0.0.1:8000`. The backend loads the packaged model weights from `models/` and returns predicted energies and forces; the Streamlit app does not contain a separate copy of the model.
+The Streamlit interface sends requests to a **separately hosted FastAPI backend** configured through the Streamlit secret `CGNET_API_URL` (or the environment variable of the same name). The FastAPI backend is hosted on **Render**, separately from the Streamlit frontend. Its public URL is configured in Streamlit's Secrets settings as `CGNET_API_URL`; the precise Render service URL is not currently documented in this repository. Locally, the default is `http://127.0.0.1:8000`. The backend loads the packaged model weights from `models/` and returns predicted energies and forces; the Streamlit app does not contain a separate copy of the model.
 
 ## From dihedral angles to model predictions
 

@@ -2,9 +2,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY . .
+# Install the CPU-only PyTorch wheel before the application requirements.
+# No CUDA libraries are needed for inference, keeping the image much smaller.
+RUN python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 EXPOSE 8000
 
